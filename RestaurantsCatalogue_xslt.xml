@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0" xmlns:fo="http://www.w3.org/1999/XSL/Format">
+
+	<xsl:output method="xml" indent="yes"/>
+	<xsl:template match="/">
+
+		<!--  Setting document format options -->
+
+		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+			<fo:layout-master-set>
+				<fo:simple-page-master master-name="page" page-height="29.7cm" page-width="21cm" margin-top="1cm" margin-bottom="2cm" margin-left="2.5cm" margin-right="2.5cm">
+					<fo:region-body margin-top="3cm"/>
+					<fo:region-before extent="3cm"/>
+					<fo:region-after extent="1.5cm"/>
+				</fo:simple-page-master>
+			</fo:layout-master-set>
+
+			<!--  First (Header) Page -->
+
+			<fo:page-sequence master-reference="page">
+				<fo:flow flow-name="xsl-region-body">
+					<fo:block font-family="Calibri" font-size="20pt" font-stretch="expanded" font-weight="bold" text-align="center" border-bottom="2px solid black">
+						<fo:block>
+							<fo:inline>
+                			Каталог на ресторантите в България
+                		</fo:inline>
+						</fo:block>
+						<fo:block>
+							<fo:inline>
+								<xsl:text>по региони и вериги</xsl:text>
+							</fo:inline>
+						</fo:block>
+					</fo:block>
+				</fo:flow>
+			</fo:page-sequence>
+
+			<!--  The following template consists of the whole catalogue conent -->
+
+			<xsl:apply-templates select="restaurants-catalogue-bg"/>
+
+		</fo:root>
+	</xsl:template>
+
+	<!--  Splitting the main template into two parts - chains & regions (where restaurants by regions will be displayed) -->
+
+	<xsl:template match="restaurants-catalogue-bg">
+		<xsl:apply-templates select="chains"/>
+		<xsl:apply-templates select="regions"/>
+	</xsl:template>
+
+	<xsl:template match="chains">
+		<xsl:for-each select="./chain">
+			<fo:page-sequence master-reference="page">
+				<fo:flow flow-name="xsl-region-body">
+					<fo:block font-family="Calibri" font-size="14pt">
+						<xsl:if test="position()=1">
+							<fo:block font-family="Calibri" font-size="18pt" font-weight="bold" text-align="center" margin-bottom="1.5cm">
+								<fo:inline>
+									<xsl:text>Вериги ресторанти</xsl:text>
+								</fo:inline>
+							</fo:block>
+						</xsl:if>
+						<fo:block font-weight="bold" padding-left="1cm" position="relative">
+							Име:
+							<fo:inline font-weight="normal">
+								<xsl:value-of select="./chain-name"/>
+							</fo:inline>
+						</fo:block>
+						<fo:block position="absolute" text-align="center">
+							<xsl:apply-templates select="chain-logo"/>
+						</fo:block>
+						<fo:block font-weight="bold" padding-left="1cm" position="relative" margin-bottom="1cm" margin-top="1cm">
+							Описание:
+							<fo:inline font-weight="normal">
+								<xsl:value-of select="./chain-description"/>
+							</fo:inline>
+						</fo:block>
+						<xsl:if test="./chain-website">
+							<fo:block font-weight="bold" padding-left="1cm" position="relative" margin-bottom="1cm">
+								Уебсайт:
+								<fo:inline font-weight="normal">
+									<xsl:value-of select="./chain-website"/>
+								</fo:inline>
+							</fo:block>
+						</xsl:if>
+						<fo:block font-weight="bold" padding-left="1cm" position="relative">
+							Ресторанти от веригата в каталога:
+						<xsl:variable name="chain_id" select="@chain_id"/>
+							<fo:list-block>
+								<xsl:for-each select="../../restaurants/restaurant[@chain_ref=$chain_id]">
+									<fo:list-item>
+										<!--There is a bug on displaying the list-item-label: it stays behind the list-item-body, so I left it with none-->
+										<fo:list-item-label>
+											<fo:block/>
+										</fo:list-item-label>
+										<fo:list-item-body>
+											<fo:block font-weight="normal">
+												<xsl:value-of select="./restaurant-name"/>
+											</fo:block>
+										</fo:list-item-body>
+									</fo:list-item>
+								</xsl:for-each>
+							</fo:list-block>
+						</fo:block>
+					</fo:block>
+				</fo:flow>
+			</fo:page-sequence>
+		</xsl:for-each>
+	</xsl:template>
+
+	<xsl:template match="chain-logo">
+		<fo:external-graphic src="{unparsed-entity-uri(logo/@logo_src)}" content-height="200" content-width="300" display-align="center"/>
+	</xsl:template>
+
+	<!-- In this template, we are looping through every region and displaying the restaurants in it.
+		We are further splitting most of the restaurants characteristics into smaller templates. -->
+
+	<xsl:template match="regions">
+		<xsl:for-each select="./region">
+			<xsl:variable name="region_id" select="@region_id"/>
+			<xsl:variable name="region-name" select="./region-name"/>
+			<xsl:for-each select="../../restaurants/restaurant[@region_ref=$region_id]">
+				<fo:page-sequence master-reference="page">
+					<fo:flow flow-name="xsl-region-body">
+						<fo:block font-size="14pt" font-family="Calibri">
+							<fo:block font-size="16pt" font-weight="bold" padding-left="1cm" position="relative" margin-bottom="1cm">
+							Ресторант <xsl:value-of select="./restaurant-name"/>
+							</fo:block>
+							<fo:block position="absolute" text-align="center" margin-bottom="0.5cm">
+								<xsl:apply-templates select="main-image"/>
+							</fo:block>
+							<fo:block margin-bottom="0.5cm">
+								<fo:inline font-weight="bold">Регион: </fo:inline>
+								<fo:inline><xsl:value-of select="$region-name"/></fo:inline>
+							</fo:block>
+							<xsl:if test="./description">
+								<fo:block>
+									<fo:inline font-weight="bold" padding-right="1cm">Описание: </fo:inline>
+								</fo:block>
+								<fo:block margin-bottom="0.5cm">
+									<xsl:value-of select="./description"/>
+								</fo:block>
+							</xsl:if>
+							<fo:block>
+								<xsl:apply-templates select="address"/>
+							</fo:block>
+							<fo:block>
+								<xsl:apply-templates select="phone-numbers"/>
+							</fo:block>
+							<fo:block>
+								<xsl:apply-templates select="working-hours"/>
+							</fo:block>
+							<fo:block margin-bottom="0.5cm">
+								<fo:inline font-weight="bold">
+									<xsl:text>Капацитет места: </xsl:text>
+								</fo:inline>
+								<xsl:value-of select="./seats-capacity"/>
+							</fo:block>
+							<xsl:if test="./services">
+								<fo:block margin-bottom="0.5cm">
+									<xsl:apply-templates select="services"/>
+								</fo:block>
+							</xsl:if>
+							<xsl:if test="./cuisine">
+								<fo:block margin-bottom="0.5cm">
+									<xsl:apply-templates select="cuisine"/>
+								</fo:block>
+							</xsl:if>
+							<xsl:if test="./website">
+								<fo:block>
+									<fo:inline font-weight="bold">Уебсайт: </fo:inline>
+									<xsl:value-of select="./website"/>
+								</fo:block>
+							</xsl:if>
+							<xsl:if test="./email">
+								<fo:block>
+									<fo:inline font-weight="bold">Email: </fo:inline>
+									<xsl:value-of select="./email"/>
+								</fo:block>
+							</xsl:if>
+							<xsl:if test="./menu">
+								<fo:block>
+									<fo:inline font-weight="bold">Меню: </fo:inline>
+									<xsl:value-of select="./menu"/>
+								</fo:block>
+							</xsl:if>
+							<fo:block margin-bottom="0.5cm">
+								<fo:inline font-weight="bold">Ценова категория: </fo:inline>
+								<xsl:variable name="price_category" select="../../restaurants/restaurant/@price_category_ref"/>
+								<xsl:value-of select="../../price-categories/category[@price_category_id=$price_category]"/>
+							</fo:block>
+							<fo:block>
+								<fo:block font-weight="bold" padding-right="1cm">Галерия: </fo:block>
+								<xsl:apply-templates select="gallery"/>
+							</fo:block>
+						</fo:block>
+					</fo:flow>
+				</fo:page-sequence>
+			</xsl:for-each>
+		</xsl:for-each>
+	</xsl:template>
+
+	<!--  Small templates to display various restaurants' properties -->
+
+	<xsl:template match="main-image">
+		<fo:external-graphic src="{unparsed-entity-uri(@image_src)}" content-height="200" content-width="300" display-align="center"/>
+	</xsl:template>
+
+	<xsl:template match="address">
+		<fo:inline font-weight="bold">
+			<xsl:text>Адрес: </xsl:text>
+		</fo:inline>
+		<fo:inline>
+			<xsl:value-of select="./city"/>
+		</fo:inline>
+		<fo:inline>
+			<xsl:if test="street">
+				<xsl:value-of select="street"/>
+			</xsl:if>
+		</fo:inline>
+		<fo:inline>
+			<xsl:if test="building">
+				<xsl:value-of select="building"/>
+			</xsl:if>
+		</fo:inline>
+	</xsl:template>
+
+	<xsl:template match="phone-numbers">
+		<fo:inline font-weight="bold" padding-right="1cm">
+			<xsl:text>Тел. за контакт: </xsl:text>
+		</fo:inline>
+		<xsl:for-each select="./phone-number">
+			<fo:block>
+				<xsl:value-of select="."/>
+			</fo:block>
+		</xsl:for-each>
+	</xsl:template>
+
+	<xsl:template match="services">
+		<fo:inline font-weight="bold" padding-right="1cm">
+			<xsl:text>Услуги </xsl:text>
+		</fo:inline>
+		<xsl:for-each select="./service">
+			<fo:block>
+				<xsl:value-of select="."/>
+			</fo:block>
+		</xsl:for-each>
+	</xsl:template>
+
+	<xsl:template match="working-hours">
+		<fo:inline font-weight="bold">
+			<xsl:text>Работно време: </xsl:text>
+		</fo:inline>
+		<fo:inline>
+			<xsl:value-of select="./opening-hour"/>
+		</fo:inline>
+		<xsl:text>-</xsl:text>
+		<fo:inline>
+			<xsl:value-of select="./closing-hour"/>
+		</fo:inline>
+	</xsl:template>
+
+	<xsl:template match="cuisine">
+		<fo:inline font-weight="bold" padding-right="1cm">
+			<xsl:text>Кухня: </xsl:text>
+		</fo:inline>
+		<xsl:for-each select="./cuisine-type">
+			<fo:block>
+				<xsl:value-of select="."/>
+			</fo:block>
+		</xsl:for-each>
+	</xsl:template>
+	
+	<xsl:template match="gallery">
+		<fo:table>
+			<fo:table-body>
+				<fo:table-row>
+					<xsl:for-each select="./image">
+						<fo:table-cell>
+							<fo:block>
+								<fo:external-graphic src="{unparsed-entity-uri(@image_src)}" content-height="150" content-width="250" display-align="center"/>
+							</fo:block>
+						</fo:table-cell>
+					</xsl:for-each>
+				</fo:table-row>
+			</fo:table-body>
+		</fo:table>
+	</xsl:template>
+
+</xsl:stylesheet>

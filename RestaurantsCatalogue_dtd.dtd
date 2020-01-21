@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!ELEMENT restaurants-catalogue-bg (regions, chains, price-categories, restaurants)>
+
+<!ELEMENT regions (region+)>
+<!ELEMENT region (region-name)>
+<!ATTLIST region region_id ID #REQUIRED>
+<!ELEMENT region-name (#PCDATA)>
+
+<!ELEMENT chains (chain+)>
+<!ELEMENT chain (chain-name, chain-description, chain-logo, chain-website?)>
+<!ATTLIST chain chain_id ID #REQUIRED>
+<!ELEMENT chain-name (#PCDATA)>
+<!ELEMENT chain-description (#PCDATA)>
+<!ELEMENT chain-logo (logo)>
+<!ELEMENT logo EMPTY>
+<!ATTLIST logo logo_src ENTITY #REQUIRED>
+<!ELEMENT chain-website (#PCDATA)>
+
+<!ELEMENT price-categories (category+)>
+<!ELEMENT category (#PCDATA)>
+<!ATTLIST category price_category_id ID #REQUIRED>
+
+<!ELEMENT restaurants (restaurant+)>
+<!ELEMENT restaurant (restaurant-name, main-image, address, phone-numbers, services?, working-hours, cuisine?, seats-capacity, website?, email?, menu?, description?, gallery)>
+<!ATTLIST restaurant restaurant_id ID #REQUIRED>
+<!ATTLIST restaurant chain_ref IDREFS #IMPLIED>
+<!ATTLIST restaurant region_ref IDREFS #REQUIRED>
+<!ATTLIST restaurant price_category_ref IDREFS #IMPLIED>
+<!ELEMENT restaurant-name (#PCDATA)>
+
+<!ELEMENT main-image EMPTY>
+<!ATTLIST main-image image_src ENTITY #REQUIRED>
+
+<!ELEMENT address (city, street?, building?)>
+<!ELEMENT city (#PCDATA)>
+<!ELEMENT street (#PCDATA)>
+<!ELEMENT building (#PCDATA)>
+
+<!ELEMENT phone-numbers (phone-number+)>
+<!ELEMENT phone-number (#PCDATA)>
+
+<!ELEMENT services (service+)>
+<!ELEMENT service (#PCDATA)>
+<!ATTLIST service type CDATA #REQUIRED>
+
+<!ELEMENT working-hours (opening-hour, closing-hour)>
+<!ELEMENT opening-hour (#PCDATA)>
+<!ELEMENT closing-hour (#PCDATA)>
+
+<!ELEMENT cuisine (cuisine-type+)>
+<!ELEMENT cuisine-type (#PCDATA)>
+
+<!ELEMENT seats-capacity (#PCDATA)>
+<!ELEMENT website (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT menu (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT gallery (image+)>
+<!ELEMENT image EMPTY>
+<!ATTLIST image image_src ENTITY #REQUIRED>
+
+<!ENTITY shtastliveca-chain-logo SYSTEM "images/logos/shtastliveca.png" NDATA png>
+<!ENTITY shtastliveca-sofia SYSTEM "images/shtastliveca/main.jpg" NDATA jpg>
+<!ENTITY shtastliveca-sf-1 SYSTEM "images/shtastliveca/sf-interior.jpg" NDATA jpg>
+<!ENTITY shtastliveca-sf-2 SYSTEM "images/shtastliveca/sf-exterior.jpg" NDATA jpg>
+<!ENTITY shtastliveca-stz SYSTEM "images/shtastliveca/stz-main.png" NDATA png>
+<!ENTITY shtastliveca-stz-1 SYSTEM "images/shtastliveca/stz-interior.png" NDATA png>
+<!ENTITY shtastliveca-stz-2 SYSTEM "images/shtastliveca/stz-exterior.png" NDATA png>
+
+<!ENTITY raffy-chain-logo SYSTEM "images/logos/raffy.png" NDATA png>
+<!ENTITY raffy-pld SYSTEM "images/raffy/pld-exterior.jpg" NDATA jpg>
+<!ENTITY raffy-pld-1 SYSTEM "images/raffy/pld-interior.jpg" NDATA jpg>
+<!ENTITY raffy-pld-2 SYSTEM "images/raffy/pld-food.png" NDATA png>
+
+<!ENTITY raffy-pool SYSTEM "images/raffy/pool.png" NDATA png>
+<!ENTITY raffy-pool-1 SYSTEM "images/raffy/pool-exterior.jpeg" NDATA jpg>
+<!ENTITY raffy-pool-2 SYSTEM "images/raffy/pool-interior.jpeg" NDATA jpg>
+
+<!ENTITY ilsiciliano-chain-logo SYSTEM "images/logos/il-siciliano.jpg" NDATA jpg>
+<!ENTITY iliciliano-vlas SYSTEM "images/il-siciliano/main.png" NDATA png>
+<!ENTITY iliciliano-vlas-1 SYSTEM "images/il-siciliano/interior.jpg" NDATA png>
+<!ENTITY iliciliano-vlas-2 SYSTEM "images/il-siciliano/terasse.jpg" NDATA jpg>
+
+<!ENTITY catchamak-chain-logo SYSTEM "images/logos/catchamak.png" NDATA png>
+<!ENTITY catchamak-soz SYSTEM "images/catch-a-mak/main.jpg" NDATA jpg>
+<!ENTITY catchamak-soz-1 SYSTEM "images/catch-a-mak/terasse.jpg" NDATA jpg>
+
+<!ENTITY montecito-logo SYSTEM "images/logos/montecito.png" NDATA png>
+<!ENTITY montecito-1 SYSTEM "images/montecito/interior.jpg" NDATA jpg>
+<!ENTITY montecito-2 SYSTEM "images/montecito/exterior.jpg" NDATA jpg>
+
+<!NOTATION jpg SYSTEM "image/jpeg">
+<!NOTATION png SYSTEM "image/png">

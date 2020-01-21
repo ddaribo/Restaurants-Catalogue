@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="RestaurantsCatalogue_xslt"?>
+<!DOCTYPE restaurants-catalogue-bg SYSTEM "RestaurantsCatalogue_dtd.dtd">
+
+<restaurants-catalogue-bg>
+
+	<!--***************Regions***************-->
+
+	<regions>
+		
+		<region region_id="SF">
+			<region-name>София</region-name>
+		</region>
+
+		<region region_id="STZ">
+			<region-name>Стара Загора</region-name>
+		</region>
+
+		<region region_id="PLD">
+			<region-name>Пловдив</region-name>
+		</region>
+
+		<region region_id="BS">
+			<region-name>Бургас</region-name>
+		</region>
+
+	</regions>
+
+	<!--***************Chains***************-->
+
+	<chains>
+		
+		<chain chain_id="Shtastliveca">
+			<chain-name>Щастливеца</chain-name>
+			<chain-description>
+				Заведенията на верига "Щастливеца" са част от верига ресторанти, която дава своето начало през 1997 година във Велико Търново и заимства от Алеко Константинов не само псевдонима, но и ни връща към интериорните решения, характерни за домашния градски стил в Европа от 30-те години на миналия век.
+			</chain-description>
+			<chain-logo>
+				<logo logo_src="shtastliveca-chain-logo"></logo>
+			</chain-logo>
+			<chain-website>http://www.shtastliveca.com</chain-website>
+		</chain>
+
+		<chain chain_id="Raffy">
+			<chain-name>Raffy Bar &amp; Gelato</chain-name>
+			<chain-description>
+				Веригата "Raffy Bar &amp; Gelato" е сред най-популярните в последните години заведения. Централните локации, разнообразното меню, модерната обстановка и интересната концепция са едни от факторите за този успех. "Raffy" ресторантите са едновременно и барове - предлагат завидно разнообразие от коктейли.
+			</chain-description>
+			<chain-logo>
+				<logo logo_src="raffy-chain-logo"></logo>
+			</chain-logo>
+			<chain-website>http://www.raffy.bg</chain-website>
+		</chain>
+
+		<chain chain_id="IlSiciliano">
+			<chain-name>Италиански ресторанти  &quot;Il Siciliano&quot;</chain-name>
+			<chain-description>
+				Ние сме петима приятели италианци Стефано Стека, Вито Стаси , Санто Пате, Джовани Маглиано, Винченцо Саварезе  заедно със Серена Гаета.
+				Всеки от нас работел в известни италиански ресторанти (pесторантът с две Мишелин звезди San Dominiko Италия,Novikov London, Zafferano, Rosmarino, Brunello в хотел Baglioni Лондон, TOTO’s, Stecca London) с обща страст към прекрасната храна, хубавото вино и приятната компания. Преди няколко години посетихме за първи път България и бяхме очаровани от нейната природа, забележителности и приветливи хора. След успеха на първият ни ресторант на Свети Влас решихме, че искаме да отворим втори именно тук в сърцето на София,като целта ни е  да Ви пренесем в южна Италия и по точно Сицилия  с нейната автентична кухня и неповторима атмосфера.
+			</chain-description>
+			<chain-logo>
+				<logo logo_src="ilsiciliano-chain-logo"></logo>
+			</chain-logo>
+			<chain-website>https://www.ilsiciliano.eu/</chain-website>
+		</chain>
+
+		<chain chain_id="catchAMaK">
+			<chain-name>Catch&apos;A maK</chain-name>
+			<chain-description>
+			Създадохме заедно заведения с домашен уют, прекрасна кухня, ненатрапчиво обслужване и изненадващо НЕвисоки цени ...и много музика!
+			Очакваме ви в Catch&apos;A maK!
+			</chain-description>
+			<chain-logo>
+				<logo logo_src="catchamak-chain-logo"></logo>
+			</chain-logo>
+			<chain-website>https://catchamak.wixsite.com/restaurants</chain-website>
+		</chain>
+
+	</chains>
+
+	<!--***************Price categories of restaurants***************-->
+
+	<price-categories>
+		<category price_category_id="id_1">Ниски цени</category>
+		<category price_category_id="id_2">Средно ниски цени</category>
+		<category price_category_id="id_3">Средно високи цени</category>
+		<category price_category_id="id_4">Високи цени</category>
+	</price-categories>
+
+	<!--***************Start of catalogue***************-->
+
+	<restaurants>
+
+	<!--***************First entry***************-->
+
+		<restaurant restaurant_id="Shtastliveca_Sofia_1" chain_ref="Shtastliveca" region_ref="SF" price_category_ref="id_3">
+			<restaurant-name>Щастливеца бул.  &quot;Витоша&quot;</restaurant-name>
+			<main-image image_src="shtastliveca-sofia"></main-image>
+			<address>
+				<city>София</city>
+				<street>бул.  &quot;Витоша&quot; 27</street>
+			</address>
+			<phone-numbers>
+				<phone-number>02 441 1155</phone-number>
+			</phone-numbers>
+			<services>
+				<service type="extra">Wi-Fi</service>
+				<service type="extra">Климатик</service>
+				<service type="extra">Градина</service>
+				<service type="menu">Кетъринг услуги</service>
+				<service type="menu">Обедно меню</service>
+				<service type="event">Сватби</service>
+				<service type="event">Кръщенета</service>
+				<service type="event">Рождени дни</service>
+				<service type="event">Фирмени партита</service>
+				<service type="event">Частни партита</service>
+			</services>
+			<working-hours>
+				<opening-hour>11:00</opening-hour>
+				<closing-hour>0:00</closing-hour>
+			</working-hours>
+			<cuisine>
+				<cuisine-type>Европейска</cuisine-type>
+				<cuisine-type>Вегетарианска</cuisine-type>
+				<cuisine-type>Гурме</cuisine-type>
+				<cuisine-type>Био</cuisine-type>
+			</cuisine>
+			<seats-capacity>280</seats-capacity>
+			<website>http://www.shtastliveca.com/bg/restaurants/shtastliveca-vitosha-sofia.html</website>
+			<description>
+				Здравей, София!
+				На Алеко Константинов му трябват няколко седмици да стигне до Чикаго и назад... Но София чака цели 17 години, преди на бул. Витоша 27 да отвори врати автентичният ресторант "Щастливеца"!
+				И в столицата веригата запазва характерния си стил "Шаби шик" и "Винтидж", като отговаря съвсем достоверно на домашния градски интериор в Европа, от 30-те години на миналия век.
+				Една от запазените марки на веригата са тематичните вечери, посветени на различни народи и тяхната кухня, бит и култура.
+				Менюто: нямайте съмнение, че тук ще намерите вкусни ястия от европейската и българската трапеза! Сезоните са в унисон с менюто или менюто е в унисон със сезоните – преценете сами на вечеря, но не забравяйте да дойдете пак на обяд, за да опитате още нещо на специални цени от обедното меню!
+			</description>
+			<gallery>
+				<image image_src="shtastliveca-sf-1"></image>
+				<image image_src="shtastliveca-sf-2"></image>
+			</gallery>
+		</restaurant>
+
+		<!--***************Second Entry***************-->
+
+		<restaurant restaurant_id="Shtastliveca_Stz_1" chain_ref="Shtastliveca" region_ref="STZ" price_category_ref="id_2">
+			<restaurant-name>Щастливеца Стара Загора</restaurant-name>
+			<main-image image_src="shtastliveca-stz"/>
+			<address>
+				<city>Стара Загора</city>
+				<building>Mall Галерия</building>
+			</address>
+			<phone-numbers>
+				<phone-number>042 919494</phone-number>
+			</phone-numbers>
+			<services>
+				<service type="extra">Wi-Fi</service>
+				<service type="extra">Паркинг</service>
+				<service type="extra">Климатик</service>
+				<service type="extra">Градина</service>
+				<service type="menu">Кетъринг услуги</service>
+				<service type="menu">Обедно меню</service>
+				<service type="event">Сватби</service>
+				<service type="event">Кръщенета</service>
+				<service type="event">Рождени дни</service>
+				<service type="event">Фирмени партита</service>
+				<service type="event">Частни партита</service>
+			</services>
+			<working-hours>
+				<opening-hour>11:00</opening-hour>
+				<closing-hour>0:00</closing-hour>
+			</working-hours>
+			<cuisine>
+				<cuisine-type>Европейска</cuisine-type>
+				<cuisine-type>Вегетарианска</cuisine-type>
+				<cuisine-type>Гурме</cuisine-type>
+				<cuisine-type>Био</cuisine-type>
+			</cuisine>
+			<seats-capacity>130</seats-capacity>
+			<website>http://www.shtastliveca.com/bg/restaurants/shtastliveca-mall-galleria-stara-zagora.html</website>
+			<email>headoffice@shtastliveca.com</email>
+			<menu>http://www.shtastliveca.com/bg/menu.html</menu>
+			<description>
+				Стара Загора си има вече своя Щастливец. На 6 октомври 2011 година в МОЛ "Галерия" отвори врати поредният ресторант с добре познатото по всички краища на България име Щастливеца.За всеки ден от седмицата е предвидено обедно меню. То предлага както традицонни нашенски манджички, така и топли ястия от европейската кухня.
+				Една от запазените марки на Щастливеца са тематичните вечери, посветени на кухните на различни народи. При предварителни заявки от клиентите в ресторанта подготвят и тематични вечери за малки групи. Така например с приятели можете да си организирате гръцка или италианска вечер или просто да поръчате любимо българско ястие, което не присъства в менюто. Можем да направим за Вас Артистична и чувствена интерпретация на зареждане на Вашата маса при резервация за специален повод или просто ако искате да се почувствате уютно, спокойно и различно при нас
+				Заповядайте в ресторант "Щастливеца" в МОЛ "Галерия" в Стара Загорa, който разполага със 130 места в закритата си зала и още 70 места в откритата лятната градина изградена на върха на МОЛ "Галерия".
+		</description>
+			<gallery>
+				<image image_src="shtastliveca-stz-1"></image>
+				<image image_src="shtastliveca-stz-2"></image>
+			</gallery>
+		</restaurant>
+
+<!--***************Third Entry***************-->
+
+		<restaurant restaurant_id="Raffy_Plovdiv" chain_ref="Raffy" region_ref="PLD" price_category_ref="id_2">
+			<restaurant-name>Raffy Bar &amp; Gelato Тракия</restaurant-name>
+			<main-image image_src="raffy-pld"/>
+			<address>
+				<city>Пловдив</city>
+				<street>ул. Съединение 51А</street>
+			</address>
+			<phone-numbers>
+				<phone-number>088 355 5589</phone-number>
+			</phone-numbers>
+			<services>
+				<service type="extra">Wi-Fi</service>
+				<service type="extra">Паркинг</service>
+				<service type="extra">Климатик</service>
+				<service type="extra">Градина</service>
+				<service type="extra">Безкасово плащане</service>
+				<service type="extra">Жива музика</service>
+				<service type="menu">Обедно меню</service>
+				<service type="event">Сватби</service>
+				<service type="event">Фирмени партита</service>
+				<service type="event">Частни партита</service>
+			</services>
+			<working-hours>
+				<opening-hour>8:00</opening-hour>
+				<closing-hour>0:00</closing-hour>
+			</working-hours>
+			<cuisine>
+				<cuisine-type>Европейска</cuisine-type>
+				<cuisine-type>Стек</cuisine-type>
+				<cuisine-type>Балгарска</cuisine-type>
+				<cuisine-type>Суши</cuisine-type>
+				<cuisine-type>Сладки и сладоледи</cuisine-type>
+			</cuisine>
+			<seats-capacity>500</seats-capacity>
+			<website>http://www.raffy.bg/bg/raffy-bar-and-gelato-plovdiv</website>
+			<menu>http://www.raffy.bg/bg/menu</menu>
+			<gallery>
+				<image image_src="raffy-pld-1"></image>
+				<image image_src="raffy-pld-2"></image>
+			</gallery>
+		</restaurant>
+
+		<!--***************Fourth Entry***************-->
+
+		<restaurant restaurant_id="Raffy_Pool" chain_ref="Raffy" region_ref="SF" price_category_ref="id_3">
+			<restaurant-name>Raffy Bar &amp; Gelato Pool</restaurant-name>
+			<main-image image_src="raffy-pool"/>
+			<address>
+				<city>София</city>
+				<street>бул.  &quot;Симеоновско шосе&quot; 97Б</street>
+			</address>
+			<phone-numbers>
+				<phone-number>089 551 5042</phone-number>
+			</phone-numbers>
+			<services>
+				<service type="extra">Wi-Fi</service>
+				<service type="extra">Паркинг</service>
+				<service type="extra">Басейн</service>
+				<service type="extra">Шезлонзи и шатри</service>
+				<service type="extra">Наргиле</service>
+				<service type="extra">Жива музика</service>
+				<service type="event">Дискотека през лятото</service>
+			</services>
+			<working-hours>
+				<opening-hour>8:00</opening-hour>
+				<closing-hour>3:00</closing-hour>
+			</working-hours>
+			<cuisine>
+				<cuisine-type>Европейска</cuisine-type>
+				<cuisine-type>Стек</cuisine-type>
+				<cuisine-type>Балгарска</cuisine-type>
+				<cuisine-type>Суши</cuisine-type>
+				<cuisine-type>Сладки и сладоледи</cuisine-type>
+			</cuisine>
+			<seats-capacity>300</seats-capacity>
+			<menu>http://www.raffy.bg/bg/menu</menu>
+			<description>
+				Raffy Bar &amp; Gelato Pool е вашето място за презареждане и релакс. Тук отново ще срещнете познатата вече от Raffy Bar изискана кухня. Меню, съчетало в себе си традиция и иноваторство, ще изненада и най-изтънчения вкус. Богато разнообразие от алкохолни и безалкохолни коктейли и напитки ще спомогнат за вашето добро настроение, а изборът от десерти ще ви изкуши.
+				И за да бъдат задоволени всичките ви сетива, на фона на подбрана музика ще може да разхладите тялото си в басейните на заведението.
+			</description>
+			<gallery>
+				<image image_src="raffy-pool-1"></image>
+				<image image_src="raffy-pool-2"></image>
+			</gallery>
+		</restaurant>
+
+		<!--***************Fifth Entry***************-->
+
+		<restaurant restaurant_id="IlSiciliano_Vlas" chain_ref="IlSiciliano" region_ref="BS" price_category_ref="id_4">
+			<restaurant-name>Италиански ресторант &quot;Il Siciliano&quot; Свети Влас</restaurant-name>
+			<main-image image_src="iliciliano-vlas"/>
+			<address>
+				<city>Свети Влас</city>
+				<street>Пристанище Марина Диневи</street>
+				<building>На кея</building>
+			</address>
+			<phone-numbers>
+				<phone-number>087 741 4040</phone-number>
+			</phone-numbers>
+			<services>
+				<service type="extra">Wi-Fi</service>
+				<service type="extra">Паркинг</service>
+				<service type="extra">Тераса</service>
+				<service type="extra">Гледка към морето</service>
+				<service type="extra">Наргиле</service>
+				<service type="extra">Жива музика</service>
+				<service type="extra">Наргиле</service>
+			</services>
+			<working-hours>
+				<opening-hour>11:00</opening-hour>
+				<closing-hour>2:00</closing-hour>
+			</working-hours>
+			<cuisine>
+				<cuisine-type>Италианска</cuisine-type>
+				<cuisine-type>Рибни специалитети</cuisine-type>
+				<cuisine-type>Домашна прясна паста</cuisine-type>
+			</cuisine>
+			<seats-capacity>120</seats-capacity>
+			<menu>https://www.ilsiciliano.eu/menu</menu>
+			<description>
+				Само при нас може да опитате уникалните сицилиански червени скариди, нашата специална паста Cacio Pepe  ,морски дарове и риби приготвени по наши фамилни рецепти, истинска неаполитанска пица, домашно приготвена паста с богат избор от автентични сосове и гарнирана с пресни трюфели.
+				Всички продукти в нашият ресторант са подбрани лично от нас и не са закупени от магазини и супермаркети, а са доставени специално от наши приятели фермери и производители от Италия. Органичните зеленчуци, които предлагаме са отгледани в най-слънчевите полета на България и ние горещо препоръчваме да опитате автентичният български розов домат.
+			</description>
+			<gallery>
+				<image image_src="iliciliano-vlas-1"></image>
+				<image image_src="iliciliano-vlas-2"></image>
+			</gallery>
+		</restaurant>
+
+		<!--***************Sixth Entry***************-->
+
+		<restaurant restaurant_id="catchAMak_soz" chain_ref="catchAMaK" region_ref="BS" price_category_ref="id_2">
+			<restaurant-name>Catch&apos;A maK Созопол</restaurant-name>
+			<main-image image_src="catchamak-soz"/>
+			<address>
+				<city>Созопол</city>
+				<street>ул.Черно Море 2</street>
+			</address>
+			<phone-numbers>
+				<phone-number>0890 16 13 16</phone-number>
+			</phone-numbers>
+			<services>
+				<service type="extra">Wi-Fi</service>
+				<service type="extra">Тераса</service>
+				<service type="extra">Градина</service>
+				<service type="extra">Гледка към морето</service>
+				<service type="extra">Наргиле</service>
+				<service type="extra">Жива музика</service>
+				<service type="menu">Обедно меню</service>
+				<service type="event">Парти и събития</service>
+			</services>
+			<working-hours>
+				<opening-hour>0:00</opening-hour>
+				<closing-hour>0:00</closing-hour>
+			</working-hours>
+			<cuisine>
+				<cuisine-type>Българска</cuisine-type>
+				<cuisine-type>Италианска</cuisine-type>
+				<cuisine-type>Гръцка</cuisine-type>
+				<cuisine-type>Френска</cuisine-type>
+			</cuisine>
+			<seats-capacity>170</seats-capacity>
+			<menu>https://catchamak.wixsite.com/restaurants/menu-catchamak</menu>
+			<description>
+				Качамак, Созопол, се намира на ул.Черно море 2. Той носи със себе си вече утвърдената традиция на марката. Заведението предлага морски специалитети, винаги прясна паста и разбира се, различни видове качамак. За своите посетители Качамак предлага и разнообразно обедно меню - различни видове супи, паста и месни специалитети, на добра цена. Съвременен интериор и приятна тераса са част от Качамак - Созопол. Тук всеки посетител може да се отпусне и да прекара приятно. Качествено обслужване на добри цени. Жива музика в определени дни. Заведението е подходящо за приятелски срещи, семейни и фирмени празненства.
+			</description>
+			<gallery>
+				<image image_src="catchamak-soz-1"></image>
+			</gallery>
+		</restaurant>
+
+		<!--***************Seventh Entry***************-->
+
+		<restaurant restaurant_id="montecito" region_ref="SF" price_category_ref="id_2">
+			<restaurant-name>Монтесито</restaurant-name>
+			<main-image image_src="montecito-logo"/>
+			<address>
+				<city>София</city>
+				<street> Бул. &quot;Цариградско шосе&quot; 357</street>
+			</address>
+			<phone-numbers>
+				<phone-number>0889 177 512</phone-number>
+				<phone-number>0888 141 119</phone-number>
+				<phone-number>02 973 6260</phone-number>
+			</phone-numbers>
+			<services>
+				<service type="extra">Паркинг</service>
+				<service type="extra">Климатик</service>
+				<service type="extra">Градина/тераса</service>
+				<service type="extra">Детски кът</service>
+				<service type="extra">Хотел</service>
+				<service type="extra">Кенферентна зала</service>
+				<service type="extra">Басейн</service>
+				<service type="event">Специални събития</service>
+			</services>
+			<working-hours>
+				<opening-hour>9:00</opening-hour>
+				<closing-hour>2:00</closing-hour>
+			</working-hours>
+			<cuisine>
+				<cuisine-type>Българска</cuisine-type>
+				<cuisine-type>Международна</cuisine-type>
+			</cuisine>
+			<seats-capacity>300</seats-capacity>
+			<website>http://www.hotelmontecito.bg/restaurant</website>
+			<email>restaurant@hotelmontecito.bg</email>
+			<menu>http://www.hotelmontecito.bg/dishes/</menu>
+			<description>
+				Добре познатият ресторант &quot;Горублянско ханче&quot; напълно промени визията си, като се превърна в модерен и луксозен ресторант с уникална визия под името Montecito. За романтичната атмосфера на салона допринасят класическите решения в обзавеждането с елементи в стил Луи XIV, атрактивният отварящ се покрив, огромните кристални полилеи и съчетанието на цветове в екрю и тюркоазено синьо в комбинация със златно. Салонът на ресторант Montecito разполага с 200 места, а балната зала &quot;Montecito Hall&quot; предлага 300 места. Обстановката е като в малък дворец, а градината е с капацитет от 140 места и ще ви очарова със зеленина и уютни кътове. Ресторант Montecito разполага с обширен и луксозен салон в който гостите имат поглед от всяко кътче към централната част, дансинга и отваряемия покрив.
+			</description>
+			<gallery>
+				<image image_src="montecito-1"></image>
+				<image image_src="montecito-2"></image>
+			</gallery>
+		</restaurant>
+
+	</restaurants>
+</restaurants-catalogue-bg>
